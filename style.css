@@ -52,9 +52,13 @@ main {
 
 .name {
   position: absolute;
-  left: 5px;
+  left: 0;
   bottom: 0;
   text-shadow: 1em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 main h2 {
@@ -114,9 +118,12 @@ main h2 {
 }
 
 /* footer */
+footer {
+  background-color: rgb(56, 178, 226);
+}
+
 footer > div {
   padding: 1.5em;
-  background-color: rgb(56, 178, 226);
   color: white;
 }
 
@@ -130,4 +137,96 @@ footer .icons {
 
 footer > img {
   border-radius: 0px;
+}
+
+/* media queries */
+
+/* tablets */
+@media (min-width: 550px) {
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+  }
+
+  main .icons {
+    justify-content: end;
+  }
+
+  .work-section {
+    padding: 2em;
+  }
+
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+  }
+
+  .project + .project {
+    margin-top: 0;
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    margin-top: 2em;
+  }
+
+  footer > img {
+    max-width: 50%;
+    margin-right: 2em;
+  }
+
+  footer .icons {
+    justify-content: start;
+  }
+}
+
+/* laptops */
+@media (min-width: 1200px) {
+  .projects-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3em;
+  }
+
+  .profile-pic-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .profile-pic {
+    object-fit: cover;
+    width: 1800px;
+    object-position: center 10%;
+    /* todo: learn about object-position property */
+  }
+
+  .name {
+    color: white;
+  }
+
+  main,
+  .work-section {
+    padding: 2em 4em;
+  }
+
+  .profile-pic {
+    height: 50vh;
+  }
+
+  footer {
+    gap: 1em;
+  }
+}
+
+/* even larger displays */
+@media (min-width: 1800px) {
+  .projects-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 }
