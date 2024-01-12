@@ -13,6 +13,42 @@
 :root {
   --content-font-family: 'Noto Sans', sans-serif;
   --heading-font-family: 'Bitter', serif;
+  --txt-clr: black;
+  --bg-clr: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --txt-clr: white;
+    --bg-clr: #121212;
+  }
+
+  img {
+    filter: brightness(0.8) contrast(1.2);
+  }
+
+  .icons img:not(footer .icons img) {
+    background-color: var(--txt-clr);
+    border-radius: 50%;
+    padding: 0.2em;
+  }
+
+  footer p,
+  footer h2,
+  footer span {
+    color: var(--bg-clr);
+  }
+
+  .project {
+    box-shadow: rgb(0 0 0 / 25%) 0px 6px 12px -2px,
+      rgb(0 0 0 / 30%) 0px 3px 7px -3px;
+    background-color: #000000;
+  }
+}
+
+body {
+  color: var(--txt-clr);
+  background-color: var(--bg-clr);
 }
 
 h1,
@@ -39,13 +75,28 @@ main {
   line-height: 1.5;
 }
 
+main::after {
+  content: '';
+  background-image: url('./images/tilt.svg');
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transform: rotateY(180deg);
+  z-index: -1;
+  max-height: 60vh;
+}
+
 .profile-pic-container {
   position: relative;
 }
 
 .profile-pic {
   width: 100%;
+  max-height: 50vh;
   object-fit: cover;
+  object-position: center 10%;
   border-radius: 10px;
   box-shadow: 2px 5px 5px rgba(50, 50, 93, 0.25);
 }
@@ -54,7 +105,6 @@ main {
   position: absolute;
   left: 0;
   bottom: 0;
-  text-shadow: 1em;
   width: 100%;
   display: flex;
   align-items: center;
@@ -87,8 +137,13 @@ main h2 {
 
 .project {
   border-radius: 5px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+@media (prefers-color-scheme: light) {
+  .project {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  }
 }
 
 .project + .project {
@@ -124,7 +179,7 @@ footer {
 
 footer > div {
   padding: 1.5em;
-  color: white;
+  color: var(--txt-clr);
 }
 
 footer > div img:not(.icons img) {
@@ -147,7 +202,21 @@ footer > img {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2em;
+  }
+
+  .about-me {
+    padding: 2em;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: var(--bg-clr);
+    flex: 3;
+  }
+
+  main h2 {
+    text-align: left;
+  }
+
+  .profile-pic-container {
+    flex: 2;
   }
 
   main .icons {
@@ -184,6 +253,17 @@ footer > img {
   footer .icons {
     justify-content: start;
   }
+
+  .icons img,
+  .project {
+    transition: transform 300ms ease;
+    cursor: pointer;
+  }
+
+  .icons img:hover,
+  .project:hover {
+    transform: scale(1.1);
+  }
 }
 
 /* laptops */
@@ -203,7 +283,6 @@ footer > img {
     object-fit: cover;
     width: 1800px;
     object-position: center 10%;
-    /* todo: learn about object-position property */
   }
 
   .name {
