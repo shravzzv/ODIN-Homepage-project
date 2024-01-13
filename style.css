@@ -238,6 +238,7 @@ footer > img {
 
   .profile-pic-container {
     flex: 2;
+    max-width: 40vw;
   }
 
   main .icons {
