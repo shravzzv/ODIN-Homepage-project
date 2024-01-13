@@ -230,6 +230,8 @@ footer > img {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     background-color: var(--bg-clr);
     flex: 3;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   main h2 {
@@ -293,11 +295,7 @@ footer > img {
   .profile-pic {
     object-fit: cover;
     width: 1800px;
-    object-position: center 10%;
-  }
-
-  .name {
-    color: white;
+    object-position: 10%;
   }
 
   main,
