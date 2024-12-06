@@ -110,6 +110,8 @@ main::after {
   align-items: center;
   justify-content: center;
   animation: tracking-in-expand 1000ms ease;
+  color: white;
+  text-shadow: black 1px 0 10px;
 }
 
 main h2 {
